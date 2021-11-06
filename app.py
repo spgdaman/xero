@@ -14,6 +14,7 @@ from random import randint
 from functools import wraps
 from io import BytesIO
 from logging.config import dictConfig
+from waitress import serve
 
 from flask import Flask, url_for, render_template, session, redirect, json, send_file, request
 from flask_oauthlib.contrib.client import OAuth, OAuth2Application
@@ -11859,4 +11860,5 @@ def get_xero_tenant_id():
 
 
 if __name__ == "__main__":
-    app.run(host='localhost', port=5000)
+#     app.run(host='localhost', port=5000)
+    serve(app, host='0.0.0.0', port=5000, threads=1)
